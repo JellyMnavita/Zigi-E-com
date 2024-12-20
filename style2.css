@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #fffef5;
+    backdrop-filter: blur(10px);
+}
+
+.nav-tabs {
+    background: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+     font-size: 18px;
+}
+
+.tabs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.tab {
+    text-decoration: none;
+    color: #f26522;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+}
+
+.register-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 520px;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.register-header h1 {
+    color: #f26522;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.register-header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f26522;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: #f26522;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .register-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs-container {
+        padding: 0 1rem;
+    }
+
+    .nav-right {
+        gap: 1rem;
+    }
+
+    .register-header h1 {
+        font-size: 1.5rem;
+    }
+}

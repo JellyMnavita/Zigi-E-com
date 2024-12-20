@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Zigi - Marché Local</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- fevicon -->
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <!-- fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+   <!-- font awesome -->
+   <link rel="stylesheet" type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!--  -->
+   <!-- owl stylesheets -->
+   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <style>
+      .cart-table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+      }
+
+      .cart-table th,
+      .cart-table td {
+         padding: 10px;
+         text-align: left;
+         border-bottom: 1px solid #ddd;
+      }
+
+      .cart-table th {
+         background-color: #f5f5f5;
+      }
+
+      .cart-table button {
+         padding: 5px 10px;
+         margin: 0 5px;
+         border: none;
+         border-radius: 3px;
+         cursor: pointer;
+      }
+
+      .cart-table button:hover {
+         background-color: #e0e0e0;
+      }
+
+      .modal {
+         display: none;
+         /* Masqué par défaut */
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0, 0, 0, 0.5);
+         /* Arrière-plan semi-transparent */
+      }
+
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         /* Centrer la modal */
+         padding: 20px;
+         border: 1px solid #888;
+     overflow-x: scroll;
+         max-width: 500px;
+         border-radius: 8px;
+         /* Coins arrondis */
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         /* Ombre */
+         animation: fadeIn 0.3s;
+         /* Animation d'apparition */
+      }
+
+      .modal-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .modal-title {
+         font-size: 1.5rem;
+         color: #333;
+         /* Couleur du texte */
+      }
+
+      .close-button {
+         color: #aaa;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+
+      .close-button:hover,
+      .close-button:focus {
+         color: #000;
+         /* Couleur au survol */
+      }
+
+      .modal-body {
+         margin: 15px 0;
+         /* Espacement autour du corps de la modal */
+      }
+
+      .modal-footer {
+         display: flex;
+         justify-content: flex-end;
+         /* Aligner les boutons à droite */
+      }
+
+      .btn {
+         background-color: #f26522;
+         /* Couleur de fond */
+         color: white;
+         /* Couleur du texte */
+         border: none;
+         padding: 10px 15px;
+         border-radius: 5px;
+         /* Coins arrondis */
+         cursor: pointer;
+         transition: background-color 0.3s;
+         /* Transition pour le survol */
+      }
+
+      .btn:hover {
+         background-color: #d95f1e;
+         /* Couleur au survol */
+      }
+
+      .cart-table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+      }
+
+      .cart-table th,
+      .cart-table td {
+         padding: 10px;
+         text-align: left;
+         border-bottom: 1px solid #ddd;
+      }
+
+      .cart-table th {
+         background-color: #f5f5f5;
+         /* Couleur d'arrière-plan des en-têtes */
+      }
+
+      .cart-table button {
+         padding: 5px 10px;
+         margin: 0 5px;
+         border: none;
+         border-radius: 3px;
+         cursor: pointer;
+         background-color: #f26522;
+         /* Couleur des boutons */
+         color: white;
+         /* Couleur du texte */
+      }
+
+      .cart-table button:hover {
+         background-color: #d95f1e;
+         /* Couleur au survol des boutons */
+      }
+
+      /* Animation d'apparition */
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="header_section_top">
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="custom_menu">
+               <ul>
+                  <li><a href="#">À propos</a></li>
+                  <li><a href="#" class="panier" onclick="updateCartDisplay()">Votre Panier</a></li>
+                  <li><a href="#">Contactez-nous</a></li>
+                  <li>
+                     <a href="#" onclick="toggleUserOptions()" >Mon compte</a>
+                  </li>
+                  <div id="userOptions" style="display: none; position: absolute; z-index: 1000; right: 25em; top: 30px; background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+                     <ul>
+                        <li><a href="connexion.html" class="btn-con">Connexion</a></li>
+                        <li><a href="inscription.html" class="btn-con">Inscription</a></li>
+                     </ul>
+                  </div>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- banner bg main start -->
+   <div class="banner_bg_main">
+      <!-- header top section start -->
+
+      <!-- header top section start -->
+      <!-- logo section start -->
+      <div class="logo_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="logo"><a href="index.html"><img src="images/Logo Zigi.png" alt="Logo Zigi"></a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- logo section end -->
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container">
+            <div class="containt_main">
+               <div id="mySidenav" class="sidenav">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                  <a href="index.html">Accueil</a>
+                  <a href="fruits.html">Fruits</a>
+                  <a href="legumes.html">Légumes</a>
+                  <a href="produits_laitiers.html">Produits Laitiers</a>
+                  <a href="viandes.html">Viandes</a>
+               </div>
+               <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+               <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégories
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a class="dropdown-item" href="#">Fruits</a>
+                     <a class="dropdown-item" href="#">Légumes</a>
+                     <a class="dropdown-item" href="#">Produits laitiers</a>
+                     <a class="dropdown-item" href="#">Viandes</a>
+                  </div>
+               </div>
+               <div class="main">
+                  <!-- Another variation with a button -->
+                  <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Rechercher un produit">
+                     <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button"
+                           style="background-color: #f26522; border-color:#f26522 ">
+                           <i class="fa fa-search"></i>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <div class="header_box">
+
+
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h1 class="banner_taital">Le marché local <br> de Kinshasa</h1>
+                           <div class="buynow_bt"><a href="#produit">Acheter</a></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h1 class="banner_taital">Vos<br>produits favorits</h1>
+                           <div class="buynow_bt"><a href="#produit">Acheter</a></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <h1 class="banner_taital">Faites vos achats en ligne <br>partout où vous êtes</h1>
+                           <div class="buynow_bt"><a href="#produit">Acheter</a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+               </a>
+               <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+   </div>
+   <!-- banner bg main end -->
+   <!-- fashion section start -->
+   <div class="fashion_section" id="produit">
+      <div id="main_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <h1 class="fashion_taital">Produits Alimentaires</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Pommes fraiches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Choux</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Produits laitiers</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
+                                       href="#">Acheter</a></div>
+                                 <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Trésors Gourmands de la Région</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Viande</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">20 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/viande.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Viande', 20000)">Acheter</a></div>
+                                 <button onclick="addToCart('Viande', 20000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Épices Aromatiques</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/epices.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Épices Aromatiques', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Épices Aromatiques', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/manioc.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Manioc', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Délices Locaux à Découvrir</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Chenilles Séchées</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/chenilles.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Farine de Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/farine.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Farine de Manioc', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Farine de Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Mangues Fraîches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/mangue.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Mangues Fraîches', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Mangues Fraîches', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+         </a>
+         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+         </a>
+      </div>
+   </div>
+   <!-- fashion section end -->
+   <!-- electronic section start -->
+   <div class="fashion_section">
+      <div id="main_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <h1 class="fashion_taital">Produits Alimentaires</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Pommes fraiches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Choux</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Produits laitiers</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
+                                       href="#">Acheter</a></div>
+                                 <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Trésors Gourmands de la Région</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Viande</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">20 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/viande.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Viande', 20000)">Acheter</a></div>
+                                 <button onclick="addToCart('Viande', 20000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Épices Aromatiques</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/epices.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Épices Aromatiques', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Épices Aromatiques', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/manioc.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Manioc', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Délices Locaux à Découvrir</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Chenilles Séchées</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/chenilles.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Farine de Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/farine.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Farine de Manioc', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Farine de Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Mangues Fraîches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/mangue.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Mangues Fraîches', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Mangues Fraîches', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+         </a>
+         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+         </a>
+      </div>
+   </div>
+   <!-- electronic section end -->
+   <!-- jewellery  section start -->
+   <div class="fashion_section">
+      <div id="main_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <h1 class="fashion_taital">Produits Alimentaires</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Pommes fraiches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Choux</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Produits laitiers</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
+                              <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
+                                       href="#">Acheter</a></div>
+                                 <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Trésors Gourmands de la Région</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Viande</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">20 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/viande.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Viande', 20000)">Acheter</a></div>
+                                 <button onclick="addToCart('Viande', 20000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Épices Aromatiques</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/epices.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#"
+                                       onclick="addToCart('Épices Aromatiques', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Épices Aromatiques', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/manioc.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="#" onclick="addToCart('Manioc', 30000)">Acheter</a></div>
+                                 <button onclick="addToCart('Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="fashion_taital">Délices Locaux à Découvrir</h1>
+                  <div class="fashion_section_2">
+                     <div class="row">
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Chenilles Séchées</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/chenilles.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Farine de Manioc</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/farine.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Farine de Manioc', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Farine de Manioc', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <div class="box_main">
+                              <h4 class="shirt_text">Mangues Fraîches</h4>
+                              <p class="price_text">Prix <span style="color: #262626;">30 000 CDF</span></p>
+                              <div class="tshirt_img"><img src="images/mangue.png"></div>
+                              <div class="btn_main">
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Mangues Fraîches', 30000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Mangues Fraîches', 30000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+         </a>
+         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+         </a>
+      </div>
+   </div>
+   <!-- jewellery  section end -->
+   <!-- footer section start -->
+   <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="footer_logo"><a href="index.html"><img src="images/Logo Zigi.png" alt="Logo Zigi"></a></div>
+         <div class="input_bt">
+            <input type="text" class="mail_bt" placeholder="Votre Email" name="Votre Email">
+            <span class="subscribe_bt" id="basic-addon2"><a href="#">S'abonner</a></span>
+         </div>
+         <div class="footer_menu">
+            <ul>
+               <li><a href="#">Meilleures Ventes</a></li>
+               <li><a href="#">Idées Cadeaux</a></li>
+               <li><a href="#">Nouveautés</a></li>
+               <li><a href="#">Offres du Jour</a></li>
+               <li><a href="#">Service Client</a></li>
+            </ul>
+         </div>
+         <div class="location_main">Numéro d'aide : <a href="#">+243 828 000 000</a></div>
+      </div>
+   </div>
+   <!-- footer section end -->
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">Zigi © 2020 Tous Droits Réservés</p>
+      </div>
+   </div>
+   <div id="cartModal" class="modal">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">Votre Panier</h5>
+            <span class="close-button" onclick="closeCartModal()">&times;</span>
+         </div>
+         <div class="modal-body" id="cartItems">
+            <!-- Les articles du panier seront affichés ici -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeCartModal()">Fermer</button>
+         </div>
+      </div>
+   </div>
+      <!-- copyright section end -->
+
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script>
+
+         function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+         }
+
+         function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+         }
+      </script>
+      <script>
+         let cart = [];
+
+         function addToCart(productName, productPrice) {
+            // Vérifier si le produit existe déjà dans le panier
+            const existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+               // Si le produit existe, augmenter la quantité
+               existingProduct.quantity += 1;
+               existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
+            } else {
+               // Si le produit n'existe pas, l'ajouter avec une quantité de 1
+               const product = {
+                  name: productName,
+                  price: productPrice,
+                  quantity: 1,
+                  totalPrice: productPrice
+               };
+               cart.push(product);
+            }
+
+            // Calculer le total du panier
+            const cartTotal = cart.reduce((total, item) => total + item.totalPrice, 0);
+
+            // Afficher une notification plus détaillée
+            const message = `${productName} a été ajouté au panier !
+         Prix unitaire : ${productPrice} CDF
+         Total du panier : ${cartTotal} CDF`;
+
+            // Créer une notification stylisée
+            showNotification(message);
+
+         }
+
+         function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            notification.innerHTML = message.replace(/\n/g, '<br>');
+
+            // Styles pour la notification
+            notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+         `;
+
+            document.body.appendChild(notification);
+
+            // Faire disparaître la notification après 3 secondes
+            setTimeout(() => {
+               notification.style.opacity = '0';
+               notification.style.transition = 'opacity 0.5s ease';
+               setTimeout(() => notification.remove(), 500);
+            }, 3000);
+         }
+
+         function updateCartDisplay() {
+            $('.modal').show();
+            const cartItemsContainer = document.getElementById('cartItems');
+            if (!cartItemsContainer) return;
+
+            if (cart.length === 0) {
+               cartItemsContainer.innerHTML = "<p>Votre panier est vide.</p>";
+            } else {
+               let cartItems = `
+               <div class="cart-items">
+                  <table class="cart-table">
+                     <thead>
+                        <tr>
+                           <th>Produit</th>
+                           <th>Prix unitaire</th>
+                           <th>Quantité</th>
+                           <th>Total</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+            `;
+
+               cart.forEach((item, index) => {
+                  cartItems += `
+                  <tr>
+                     <td>${item.name}</td>
+                     <td>${item.price} CDF</td>
+                     <td style='display:flex;gap:0.2em;flex-flow:column wrap;text-align:center'>
+                        <button onclick="updateQuantity(${index}, 1)">+</button>
+                           ${item.quantity}
+                        <button onclick="updateQuantity(${index}, -1)">-</button>
+                     </td>
+                     <td>${item.totalPrice} CDF</td>
+                     <td>
+                        <button onclick="removeFromCart(${index})">Supprimer</button>
+                     </td>
+                  </tr>
+               `;
+               });
+
+               const total = cart.reduce((sum, item) => sum + item.totalPrice, 0);
+               cartItems += `
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td colspan="3"><strong>Total</strong></td>
+                           <td colspan="2"><strong>${total} CDF</strong></td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            `;
+
+               cartItemsContainer.innerHTML = cartItems;
+            }
+         }
+
+      </script>
+      <script>
+         function toggleUserOptions() {
+            const userOptions = document.getElementById("userOptions");
+            if (userOptions.style.display === "none" || userOptions.style.display === "") {
+                userOptions.style.display = "block"; // Affiche les options
+            } else {
+                userOptions.style.display = "none"; // Cache les options
+            }
+         }
+
+         // Fermer les options si l'utilisateur clique en dehors
+         document.addEventListener('click', function (event) {
+            const userOptions = document.getElementById("userOptions");
+            const toggleButton = document.querySelector('a[onclick="toggleUserOptions()"]'); // Sélectionnez le lien "Mon compte"
+
+            // Vérifiez si le clic est en dehors du menu et du bouton
+            if (!userOptions.contains(event.target) && !toggleButton.contains(event.target)) {
+                userOptions.style.display = "none"; // Cache les options
+            }
+         });
+      </script>
+      <script>
+         function closeCartModal() {
+            document.getElementById("cartModal").style.display = "none";
+         }
+
+         // Fermer la modal si l'utilisateur clique en dehors de celle-ci
+         window.onclick = function(event) {
+            const modal = document.getElementById("cartModal");
+            if (event.target === modal) {
+               closeCartModal();
+            }
+         }
+      </script>
+      <script>
+         function updateQuantity(index, change) {
+            const item = cart[index];
+            
+            // Mettre à jour la quantité
+            const newQuantity = item.quantity + change;
+
+            if (newQuantity > 0) {
+                item.quantity = newQuantity;
+                item.totalPrice = item.price * newQuantity; // Recalculer le prix total
+            } else {
+                // Si la quantité devient 0, supprimer l'article du panier
+                cart.splice(index, 1);
+            }
+
+            // Mettre à jour l'affichage du panier
+            updateCartDisplay();
+         }
+      </script>
+      <script>
+         function removeFromCart(index) {
+            // Supprimer l'article du panier
+            cart.splice(index, 1);
+            
+            // Mettre à jour l'affichage du panier
+            updateCartDisplay();
+         }
+      </script>
+</body>
+
+</html>
