@@ -360,6 +360,7 @@ button {
     cursor: pointer;
     color: #ffffff;
     order: 2;
+    display: none;
 }
 
 .header_box {
@@ -629,6 +630,9 @@ a:hover {
    color: white;
    padding: 5px;
    display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5em;
    border-radius: 20px;
    width: 100%;
 }

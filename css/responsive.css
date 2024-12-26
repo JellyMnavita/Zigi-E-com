@@ -173,6 +173,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .header_section_top .custom_menu ul li span{
+        display: none;
+    }
     .banner_bg_main {
         background-size: 100% 100%;
     }
@@ -224,12 +227,13 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    .header_section_top .custom_menu ul li span{
+        display: none;
+    }
     .banner_bg_main {
         background-size: 100% 100%;
     }
-    .header_section_top {
-        display: none;
-    }
+
     .containt_main {
         display: flex;
         flex-wrap: wrap;
@@ -353,12 +357,13 @@
 }
 
 @media (max-width: 575px) {
+    .header_section_top .custom_menu ul li span{
+        display: none;
+    }
     .banner_bg_main {
         background-size: cover;
     }
-    .header_section_top {
-        display: none;
-    }
+ 
     .containt_main {
         display: flex;
         flex-wrap: wrap;

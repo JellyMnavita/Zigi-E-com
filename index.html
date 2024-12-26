@@ -4,12 +4,13 @@
 <head>
    <!-- basic -->
    <meta charset="utf-8">
+   <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-   <!-- site metas -->
+    <!-- site metas -->
    <title>Zigi - Marché Local</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
@@ -39,6 +40,7 @@
    <link rel="stylesoeet" href="css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    <style>
       .cart-table {
          width: 100%;
@@ -85,12 +87,12 @@
 
       .modal-content {
          background-color: #fefefe;
-         margin: 10% auto;
+         margin: 15% auto;
          /* Centrer la modal */
          padding: 20px;
          border: 1px solid #888;
-     overflow-x: scroll;
-         max-width: 500px;
+         width: 80%;
+         max-width: 600px;
          border-radius: 8px;
          /* Coins arrondis */
          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -113,6 +115,7 @@
 
       .close-button {
          color: #aaa;
+         float: right;
          font-size: 28px;
          font-weight: bold;
          cursor: pointer;
@@ -120,8 +123,9 @@
 
       .close-button:hover,
       .close-button:focus {
-         color: #000;
-         /* Couleur au survol */
+         color: black;
+         text-decoration: none;
+         cursor: pointer;
       }
 
       .modal-body {
@@ -209,16 +213,16 @@
          <div class="col-sm-12">
             <div class="custom_menu">
                <ul>
-                  <li><a href="#">À propos</a></li>
-                  <li><a href="#" class="panier" onclick="updateCartDisplay()">Votre Panier</a></li>
-                  <li><a href="#">Contactez-nous</a></li>
+                  <li><a href="#"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
+                  <li><a href="#" class="panier" onclick="updateCartDisplay()"><i class="fas fa-shopping-cart"></i><span>Votre Panier</span> </a></li>
+                  <li><a href="#"><i class="fas fa-envelope"></i> <span>Contactez-nous</span></a></li>
                   <li>
-                     <a href="#" onclick="toggleUserOptions()" >Mon compte</a>
+                     <a href="#" onclick="toggleUserOptions()"><i class="fas fa-user"></i><span>Mon compte</span> </a>
                   </li>
-                  <div id="userOptions" style="display: none; position: absolute; z-index: 1000; right: 25em; top: 30px; background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+                  <div id="userOptions" style="display: none; position: absolute; z-index: 1000; right: 23%; top: 100%; background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
                      <ul>
-                        <li><a href="connexion.html" class="btn-con">Connexion</a></li>
-                        <li><a href="inscription.html" class="btn-con">Inscription</a></li>
+                        <li><a href="connexion.html" class="btn-con"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+                        <li><a href="inscription.html" class="btn-con"><i class="fas fa-user-plus"></i> Inscription</a></li>
                      </ul>
                   </div>
                </ul>
@@ -344,10 +348,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt"><a href="#"
-                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
-                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Pommes fraiches', 10000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Pommes fraiches', 10000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="javascript:void(0);" onclick="openProductDetailModal('Pommes fraiches', 'images/pomme.jpg', 'La pomme est un fruit délicieux et bon.', '10 000 CDF')">Voir Plus</a>
+                                </div>
                               </div>
                            </div>
                         </div>
@@ -357,10 +364,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_choux.html" onclick="addToCart('Choux', 5000)">Acheter</a>
                                  </div>
-                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <button onclick="addToCart('Choux', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_choux.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -370,11 +380,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
-                                       href="#">Acheter</a></div>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_lait.html" onclick="addToCart('Produits laitiers', 15000)">Acheter</a>
+                                 </div>
                                  <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
-
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_lait.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -511,10 +523,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt"><a href="#"
-                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
-                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_pommes.html" onclick="addToCart('Pommes fraiches', 10000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Pommes fraiches', 10000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_pommes.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -524,10 +539,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_choux.html" onclick="addToCart('Choux', 5000)">Acheter</a>
                                  </div>
-                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <button onclick="addToCart('Choux', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_choux.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -537,11 +555,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
-                                       href="#">Acheter</a></div>
+                                 <div class="buy_bt">
+                                    <a href="#" onclick="addToCart('Produits laitiers', 15000)">Acheter</a>
+                                 </div>
                                  <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
-
+                                 <div class="seemore_bt">
+                                    <a href="#">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -678,10 +698,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">10 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/pomme.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt"><a href="#"
-                                       onclick="addToCart('Chenilles Séchées', 30000)">Acheter</a></div>
-                                 <button onclick="addToCart('Chenilles Séchées', 30000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_pommes.html" onclick="addToCart('Pommes fraiches', 10000)">Acheter</a>
+                                 </div>
+                                 <button onclick="addToCart('Pommes fraiches', 10000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_pommes.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -691,10 +714,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">5 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/choux.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Légumes frais', 5000)"><a href="#">Acheter</a>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_choux.html" onclick="addToCart('Choux', 5000)">Acheter</a>
                                  </div>
-                                 <button onclick="addToCart('Légumes frais', 5000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
+                                 <button onclick="addToCart('Choux', 5000)">Ajouter au Panier</button>
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_choux.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -704,11 +730,13 @@
                               <p class="price_text">Prix <span style="color: #262626;">15 000 CDF</span></p>
                               <div class="tshirt_img"><img width="100%" src="images/lait.jpg"></div>
                               <div class="btn_main">
-                                 <div class="buy_bt" onclick="addToCart('Produits laitiers', 15000)"><a
-                                       href="#">Acheter</a></div>
+                                 <div class="buy_bt">
+                                    <a href="page_produit_lait.html" onclick="addToCart('Produits laitiers', 15000)">Acheter</a>
+                                 </div>
                                  <button onclick="addToCart('Produits laitiers', 15000)">Ajouter au Panier</button>
-                                 <div class="seemore_bt"><a href="#">Voir Plus</a></div>
-
+                                 <div class="seemore_bt">
+                                    <a href="page_produit_lait.html">Voir Plus</a>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -854,10 +882,10 @@
    <!-- copyright section start -->
    <div class="copyright_section">
       <div class="container">
-         <p class="copyright_text">Zigi © 2020 Tous Droits Réservés</p>
+         <p class="copyright_text">Zigi © 2024 Tous Droits Réservés</p>
       </div>
    </div>
-   <div id="cartModal" class="modal">
+   <div id="cartModal" class="modal pa">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title">Votre Panier</h5>
@@ -867,8 +895,20 @@
             <!-- Les articles du panier seront affichés ici -->
          </div>
          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="proceedToPayment()">Payer</button>
             <button type="button" class="btn btn-secondary" onclick="closeCartModal()">Fermer</button>
          </div>
+      </div>
+   </div>
+    <!-- Modal pour afficher les détails du produit -->
+    <div id="productDetailModal" class="modal">
+      <div class="modal-content">
+         <span class="close-button" onclick="closeProductDetailModal()">&times;</span>
+         <h2 id="productTitle"></h2>
+         <img id="productImage" src="" alt="" style="width: 100%;">
+         <p id="productDescription"></p>
+         <p id="productPrice"></p>
+         <button onclick="addToCart(currentProductName, currentProductPrice)">Ajouter au Panier</button>
       </div>
    </div>
       <!-- copyright section end -->
@@ -956,7 +996,7 @@
          }
 
          function updateCartDisplay() {
-            $('.modal').show();
+            $('.pa').show();
             const cartItemsContainer = document.getElementById('cartItems');
             if (!cartItemsContainer) return;
 
@@ -1076,6 +1116,41 @@
             updateCartDisplay();
          }
       </script>
+      <script>
+         function proceedToPayment() {
+            // Vous pouvez rediriger vers une page de paiement ou ouvrir une nouvelle modal
+            window.location.href = "payment.html"; // Exemple de redirection
+         }
+      </script>
+  
+   <script>
+      let currentProductName = '';
+      let currentProductPrice = 0;
+
+      function openProductDetailModal(name, image, description, price) {
+         currentProductName = name;
+         currentProductPrice = price;
+
+         document.getElementById('productTitle').innerText = name;
+         document.getElementById('productImage').src = image;
+         document.getElementById('productDescription').innerText = description;
+         document.getElementById('productPrice').innerText = 'Prix: ' + price;
+
+         document.getElementById('productDetailModal').style.display = 'block';
+      }
+
+      function closeProductDetailModal() {
+         document.getElementById('productDetailModal').style.display = 'none';
+      }
+
+      // Fermer le modal si l'utilisateur clique en dehors de celui-ci
+      window.onclick = function(event) {
+         const modal = document.getElementById('productDetailModal');
+         if (event.target === modal) {
+            closeProductDetailModal();
+         }
+      }
+   </script>
 </body>
 
 </html>

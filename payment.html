@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Paiement</h1>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardNumber">Numéro de carte</label>
+                <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+            </div>
+            <div class="form-group">
+                <label for="cardHolder">Nom du titulaire</label>
+                <input type="text" id="cardHolder" placeholder="Nom et prénom" required>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Date d'expiration</label>
+                <input type="text" id="expiryDate" placeholder="MM/AA" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="XXX" required>
+            </div>
+            <button type="submit" class="btn">Payer</button>
+        </form>
+        <div id="paymentMessage" class="message"></div>
+    </div>
+    <script>
+
+    </script>
+    <script src="script.js"></script> <!-- Lien vers votre fichier JavaScript -->
+</body>
+
+</html>
