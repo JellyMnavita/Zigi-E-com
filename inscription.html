@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - E-commerce</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
    
@@ -16,7 +17,7 @@
                 <h1>Créer un compte</h1>
                 <p>Rejoignez-nous pour accéder à nos produits essentiels</p>
             </div>
-            <form>
+            <form id="registerForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nom">Nom</label>
@@ -39,10 +40,16 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="adress">Adresse</label>
+                    <input type="text" id="adress" placeholder="Votre adresse" required>
+                </div>
+
+                <div class="form-group">
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" placeholder="Créez votre mot de passe" required>
                 </div>
 
+                
                 <div class="form-group">
                     <label for="confirm_password">Confirmer le mot de passe</label>
                     <input type="password" id="confirm_password" placeholder="Confirmez votre mot de passe" required>
@@ -53,9 +60,56 @@
                     <label for="conditions">J'accepte les conditions générales d'utilisation</label>
                 </div>
 
-                <a href="#" class="submit-button">S'inscrire</a>
+                <button type="button" class="submit-button" onclick="submitForm()">S'inscrire</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function submitForm() {
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                firstName: document.getElementById('prenom').value,
+                lastName: document.getElementById('nom').value,
+                address: document.getElementById('adress').value,
+                numero: document.getElementById('telephone').value
+            };
+        
+            fetch('http://192.168.152.145:8000/api/users/newCustomer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Succès:', data);
+                Swal.fire({
+                    title: 'Inscription réussie !',
+                    text: 'Un code de vérification a été envoyé à votre adresse email. Veuillez vérifier votre boîte de réception.',
+                    icon: 'success',
+                    confirmButtonText: 'Continuer',
+                    confirmButtonColor: '#28a745',
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'verification.html';
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error('Erreur:', error);
+                Swal.fire({
+                    title: 'Erreur',
+                    text: 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#dc3545'
+                });
+            });
+        }
+    </script>
 </body>
 </html>

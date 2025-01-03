@@ -213,10 +213,12 @@ input:not([type="checkbox"]) {
     font-size: 0.9rem;
 }
 
+
 .submit-button {
-    display: block;
+    
     flex: 1;
     padding: 0.75rem;
+    border: none;
     background: #f26522;
     color: white;
     text-align: center;

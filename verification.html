@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification - E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo">
+            <a href="index.html"><img src="images/Logo Zigi.png" alt="Logo Zigi"></a>
+        </div>
+        
+        <div class="verification-container">
+            <div class="verification-header">
+                <h1>Vérification de votre compte</h1>
+                <p>Veuillez entrer le code de vérification reçu par email</p>
+            </div>
+            
+            <form id="verificationForm">
+                <div class="form-group">
+                    <label for="code">Code de vérification</label>
+                    <input type="text" id="code" placeholder="Entrez le code" required>
+                </div>
+
+                <button type="button" class="submit-button" onclick="verifyCode()">Vérifier</button>
+            </form>
+
+            <div class="verification-footer">
+                <p>Vous n'avez pas reçu de code ? <a href="#" onclick="resendCode()">Renvoyer le code</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verifyCode() {
+            const code = document.getElementById('code').value;
+            
+            fetch('http://192.168.152.145:8000/api/users/verify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code: code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                Swal.fire({
+                    title: 'Compte vérifié !',
+                    text: 'Votre compte a été vérifié avec succès.',
+                    icon: 'success',
+                    confirmButtonText: 'Continuer',
+                    confirmButtonColor: '#28a745'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'connexion.html';
+                    }
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Erreur',
+                    text: 'Code de vérification incorrect. Veuillez réessayer.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#dc3545'
+                });
+            });
+        }
+
+        function resendCode() {
+            Swal.fire({
+                title: 'Code renvoyé !',
+                text: 'Un nouveau code de vérification a été envoyé à votre adresse email.',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#17a2b8'
+            });
+        }
+    </script>
+</body>
+</html> 

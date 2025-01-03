@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de connexion</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-  
-
     <div class="main-container">
         <div class="logo"><a href="index.html"><img src="images/Logo Zigi.png" alt="Logo Zigi"></a></div>
                
@@ -17,7 +16,7 @@
                 <h1>Connexion</h1>
                 <p>Bienvenue ! Veuillez vous connecter.</p>
             </div>
-            <form>
+            <form id="loginForm">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" placeholder="Votre email" required>
@@ -26,12 +25,62 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" placeholder="Votre mot de passe" required>
                 </div>
-                <a href="#" class="login-button">Se connecter</a>
+                <button type="button" class="login-button" onclick="login()">Se connecter</button>
                 <div class="forgot-password">
                     <a href="#">Mot de passe oublié ?</a>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        function login() {
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch('http://192.168.152.145:8000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+            console.log(data)
+                if (data.token) {
+
+                    localStorage.setItem('userToken', data.token);
+                    localStorage.setItem('userName', data.user.firstName + ' ' + data.user.lastName);
+                    localStorage.setItem('userEmail', data.user.email);
+                   
+                    Swal.fire({
+                        title: 'Connexion réussie !',
+                        text: 'Vous allez être redirigé vers la page d\'accueil',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#28a745',
+                        timer: 2000,
+                        timerProgressBar: true
+                    }).then(() => {
+                        window.location.href = 'index.html';
+                    });
+                } else {
+                    throw new Error('Identifiants incorrects');
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    title: 'Erreur de connexion',
+                    text: 'Email ou mot de passe incorrect',
+                    icon: 'error',
+                    confirmButtonText: 'Réessayer',
+                    confirmButtonColor: '#dc3545'
+                });
+            });
+        }
+    </script>
 </body>
 </html>

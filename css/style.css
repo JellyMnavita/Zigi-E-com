@@ -98,20 +98,22 @@ h4 a,
 h5 a,
 h6 a {
     color: #212121;
-    text-decoration: none!important;
+    text-decoration: none !important;
     opacity: 1
 }
 
 button:focus {
     outline: none;
 }
-ul{
-    display: flex!important;
-    align-items: center!important;
-    justify-content: center!important;
+
+ul {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
 
 }
+
 ul,
 li,
 ol {
@@ -132,13 +134,17 @@ a {
     text-decoration: none;
     outline: none !important;
 }
-.btn-con{
+
+.btn-con {
     color: #0a0a0a !important;
 
 }
-.btn-con:hover{
-    color:#f26522!important;;
+
+.btn-con:hover {
+    color: #f26522 !important;
+    ;
 }
+
 a,
 .btn {
     text-decoration: none !important;
@@ -156,7 +162,7 @@ img {
     height: auto;
 }
 
- :focus {
+:focus {
     outline: 0;
 }
 
@@ -225,7 +231,7 @@ button {
 .banner_bg_main {
     width: 100%;
     float: left;
-    background: linear-gradient(180deg, #df98009d 50%,#94d1048a 100%), url('../images/banner-bg.jpg');
+    background: linear-gradient(180deg, #df98009d 50%, #94d1048a 100%), url('../images/banner-bg.jpg');
     background-size: cover;
     background-position: center;
     height: auto;
@@ -251,7 +257,7 @@ button {
 }
 
 .custom_menu {
-   flex: 1;
+    flex: 1;
     text-align: center;
 }
 
@@ -350,6 +356,7 @@ button {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 18px;
     }
@@ -568,7 +575,6 @@ a:hover {
 .fashion_section {
     width: 100%;
     float: left;
-    padding-bottom: 150px;
 }
 
 .fashion_taital {
@@ -581,16 +587,13 @@ a:hover {
 
 .fashion_section_2 {
     width: 100%;
-    margin-top: 30px;
 }
 
 .box_main {
-    width: 100%;
     background-color: #f7ffef;
-
     padding: 20px;
     box-shadow: 0px 0 30px 10px #e7e7e7;
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
 .shirt_text {
@@ -599,7 +602,6 @@ a:hover {
     color: #30302e;
     text-align: center;
     font-weight: bold;
-    padding-bottom: 5px;
 }
 
 .price_text {
@@ -607,40 +609,48 @@ a:hover {
     font-size: 16px;
     color: #f26522;
     text-align: center;
-    margin: 0px;
+    margin: 0;
 }
 
 .tshirt_img {
-    width: 100%;
     text-align: center;
-    margin: 50px 0px;
-    min-height: 370px;
+    margin: 10px 0px;
 }
-.tshirt_img img{
-    max-width: 100%;
+
+.tshirt_img img {
+    max-width: 200px;
     height: auto;
+    max-height: 120px;
 }
+
 .btn_main {
     width: 100%;
     display: flex;
+    gap: 1rem;
 }
-.btn_main button, .panier{
-   background:#f26522 ;
-   color: white;
-   padding: 5px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 0.5em;
-   border-radius: 20px;
-   width: 100%;
+
+.btn_main button,
+.panier {
+    flex: 1;
+    background: #f26522;
+    color: white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 20px;
 }
-.btn_main button:hover,.panier:hover{
-    background:#f7a078 ;
+
+.btn_main button:hover,
+.panier:hover {
+    background: #f7a078;
 }
+
 .buy_bt {
-    float: left;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .buy_bt a {
@@ -658,9 +668,9 @@ a:hover {
 }
 
 .seemore_bt {
-    width: 100%;
-    float: right;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .seemore_bt a {
@@ -676,30 +686,31 @@ a:hover {
     color: #f26522;
 }
 
-#main_slider a.carousel-control-next {
-    right: 550px;
-    top: 105%;
+a.carousel-control-next {
+    right: 30px;
+    top: 50%;
 }
 
-#main_slider a.carousel-control-prev {
-    left: 550px;
-    top: 105%;
+a.carousel-control-prev {
+    left: 30px;
+    top: 50%;
 }
 
-#main_slider .carousel-control-next,
-#main_slider .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
     width: 55px;
     height: 55px;
     background-color: #30302e;
     opacity: 1;
+    border-radius: 20px;
     font-size: 30px;
     color: #ffffff;
 }
 
-#main_slider .carousel-control-next:focus,
-#main_slider .carousel-control-next:hover,
-#main_slider .carousel-control-prev:focus,
-#main_slider .carousel-control-prev:hover {
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
     color: #fff;
     background-color: #f26522;
 }
@@ -715,34 +726,6 @@ a:hover {
     text-align: center;
     margin: 50px 0px;
     min-height: 293px;
-}
-
-#electronic_main_slider a.carousel-control-next {
-    right: 550px;
-    top: 105%;
-}
-
-#electronic_main_slider a.carousel-control-prev {
-    left: 550px;
-    top: 105%;
-}
-
-#electronic_main_slider .carousel-control-next,
-#electronic_main_slider .carousel-control-prev {
-    width: 55px;
-    height: 55px;
-    background-color: #30302e;
-    opacity: 1;
-    font-size: 30px;
-    color: #ffffff;
-}
-
-#electronic_main_slider .carousel-control-next:focus,
-#electronic_main_slider .carousel-control-next:hover,
-#electronic_main_slider .carousel-control-prev:focus,
-#electronic_main_slider .carousel-control-prev:hover {
-    color: #fff;
-    background-color: #f26522;
 }
 
 
@@ -762,34 +745,6 @@ a:hover {
     text-align: center;
     margin: 50px 0px;
     min-height: 293px;
-}
-
-#jewellery_main_slider a.carousel-control-next {
-    right: 550px;
-    top: 75%;
-}
-
-#jewellery_main_slider a.carousel-control-prev {
-    left: 550px;
-    top: 75%;
-}
-
-#jewellery_main_slider .carousel-control-next,
-#jewellery_main_slider .carousel-control-prev {
-    width: 55px;
-    height: 55px;
-    background-color: #30302e;
-    opacity: 1;
-    font-size: 30px;
-    color: #ffffff;
-}
-
-#jewellery_main_slider .carousel-control-next:focus,
-#jewellery_main_slider .carousel-control-next:hover,
-#jewellery_main_slider .carousel-control-prev:focus,
-#jewellery_main_slider .carousel-control-prev:hover {
-    color: #fff;
-    background-color: #f26522;
 }
 
 
@@ -819,6 +774,7 @@ a:hover {
     0% {
         -webkit-transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
     }
@@ -828,6 +784,7 @@ a:hover {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

@@ -220,6 +220,97 @@ position: relative;
       }
       }
 
+      .user_name {
+         color: #fff;
+         margin-right: 15px;
+         font-weight: bold;
+         
+      }
+
+      .logout-btn {
+         background-color: #dc3545;
+         color: white;
+         border: none;
+         padding: 5px 10px;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.3s;
+      }
+
+      .logout-btn:hover {
+         background-color: #c82333;
+      }
+
+      #userSection {
+         display: flex;
+         align-items: center;
+         padding: 5px 15px;
+      }
+
+      .fixed-cart-button {
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         background-color: #f26522;
+         color: white;
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+         transition: all 0.3s ease;
+         z-index: 1000;
+      }
+
+      .fixed-cart-button:hover {
+         transform: scale(1.1);
+         background-color: #e55511;
+      }
+
+      .cart-icon {
+         font-size: 24px;
+         margin-bottom: 2px;
+      }
+
+      .cart-count {
+         position: absolute;
+         top: -5px;
+         right: -5px;
+         background-color: #dc3545;
+         color: white;
+         border-radius: 50%;
+         width: 24px;
+         height: 24px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 12px;
+         font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+         .fixed-cart-button {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+         }
+
+         .cart-icon {
+            font-size: 20px;
+         }
+
+         .cart-count {
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+         }
+      }
+
    </style>
 </head>
 
@@ -233,14 +324,24 @@ position: relative;
                   <li><a href="#"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
                   <li><a href="#" class="panier" onclick="updateCartDisplay()"><i class="fas fa-shopping-cart"></i><span>Votre Panier</span> </a></li>
                   <li><a href="#"><i class="fas fa-envelope"></i> <span>Contactez-nous</span></a></li>
-                  <li>
-                     <a href="#" onclick="toggleUserOptions()"><i class="fas fa-user"></i><span>Mon compte</span> </a>
+                  <li  id="userOptions">
+                     <a href="#" onclick="showOptions()"><i class="fas fa-user"></i><span>Mon compte</span> </a>
                   </li>
-                  <div id="userOptions" style="display: none; position: absolute; z-index: 1000; right: 23%; top: 100%; background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+                  <div id="options" style="display: none; position: absolute; z-index: 1000; right: 23%; top: 100%; background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
                      <ul>
                         <li><a href="connexion.html" class="btn-con"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
                         <li><a href="inscription.html" class="btn-con"><i class="fas fa-user-plus"></i> Inscription</a></li>
                      </ul>
+                  </div>
+                  <div class="header_box">
+                     <div class="login_menu">
+                        <ul>
+                           <li id="userSection" style="display: none;">
+                              <span class="user_name"></span>
+                              <button onclick="logout()" class="logout-btn">Déconnexion</button>
+                           </li>
+                        </ul>
+                     </div>
                   </div>
                </ul>
             </div>
@@ -300,10 +401,7 @@ position: relative;
                      </div>
                   </div>
                </div>
-               <div class="header_box">
-
-
-               </div>
+              
             </div>
          </div>
       </div>
@@ -527,7 +625,7 @@ position: relative;
    <!-- fashion section end -->
    <!-- electronic section start -->
    <div class="fashion_section">
-      <div id="main_slider" class="carousel slide" data-ride="carousel">
+      <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
                <div class="container">
@@ -691,10 +789,10 @@ position: relative;
                </div>
             </div>
          </div>
-         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+         <a class="carousel-control-prev" href="#jewellery_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
          </a>
-         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+         <a class="carousel-control-next" href="#jewellery_main_slider" role="button" data-slide="next">
             <i class="fa fa-angle-right"></i>
          </a>
       </div>
@@ -702,7 +800,7 @@ position: relative;
    <!-- electronic section end -->
    <!-- jewellery  section start -->
    <div class="fashion_section">
-      <div id="main_slider" class="carousel slide" data-ride="carousel">
+      <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
                <div class="container">
@@ -866,10 +964,10 @@ position: relative;
                </div>
             </div>
          </div>
-         <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+         <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
          </a>
-         <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+         <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
             <i class="fa fa-angle-right"></i>
          </a>
       </div>
@@ -951,35 +1049,39 @@ position: relative;
          let cart = [];
 
          function addToCart(productName, productPrice) {
-            // Vérifier si le produit existe déjà dans le panier
             const existingProduct = cart.find(item => item.name === productName);
 
             if (existingProduct) {
-               // Si le produit existe, augmenter la quantité
-               existingProduct.quantity += 1;
-               existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
+                existingProduct.quantity += 1;
+                existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
             } else {
-               // Si le produit n'existe pas, l'ajouter avec une quantité de 1
-               const product = {
-                  name: productName,
-                  price: productPrice,
-                  quantity: 1,
-                  totalPrice: productPrice
-               };
-               cart.push(product);
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1,
+                    totalPrice: productPrice
+                };
+                cart.push(product);
             }
+
+            // Afficher et mettre à jour le bouton fixe du panier
+            const fixedCartButton = document.getElementById('fixedCartButton');
+            fixedCartButton.style.display = 'flex';
+            
+            // Mettre à jour le compteur
+            const cartCount = document.querySelector('.cart-count');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
 
             // Calculer le total du panier
             const cartTotal = cart.reduce((total, item) => total + item.totalPrice, 0);
 
-            // Afficher une notification plus détaillée
+            // Afficher la notification
             const message = `${productName} a été ajouté au panier !
-         Prix unitaire : ${productPrice} CDF
-         Total du panier : ${cartTotal} CDF`;
+            Prix unitaire : ${productPrice} CDF
+            Total du panier : ${cartTotal} CDF`;
 
-            // Créer une notification stylisée
             showNotification(message);
-
          }
 
          function showNotification(message) {
@@ -1079,6 +1181,18 @@ position: relative;
             }
          }
 
+         function showOptions() {
+            const options = document.getElementById("options");
+            document.getElementById("userOptions").addEventListener('click', function (event) {
+               if (options.style.display === "none" || options.style.display === "") {
+                  options.style.display = "block"; // Affiche les options
+            } else {
+               options.style.display = "none"; // Cache les options
+            }
+            });
+            
+         }
+
          // Fermer les options si l'utilisateur clique en dehors
          document.addEventListener('click', function (event) {
             const userOptions = document.getElementById("userOptions");
@@ -1117,7 +1231,16 @@ position: relative;
                 // Si la quantité devient 0, supprimer l'article du panier
                 cart.splice(index, 1);
             }
-
+      // Mettre à jour le compteur
+ 
+      const cartCount = document.querySelector('.cart-count');
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      if(totalItems===0){
+         // Afficher et mettre à jour le bouton fixe du panier
+    const fixedCartButton = document.getElementById('fixedCartButton');
+    fixedCartButton.style.display = 'none';
+    }
             // Mettre à jour l'affichage du panier
             updateCartDisplay();
          }
@@ -1126,7 +1249,16 @@ position: relative;
          function removeFromCart(index) {
             // Supprimer l'article du panier
             cart.splice(index, 1);
-            
+              // Mettre à jour le compteur
+              const cartCount = document.querySelector('.cart-count');
+              const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+              cartCount.textContent = totalItems;
+              if(totalItems===0){
+                 // Afficher et mettre à jour le bouton fixe du panier
+            const fixedCartButton = document.getElementById('fixedCartButton');
+            fixedCartButton.style.display = 'none';
+            }
+  
             // Mettre à jour l'affichage du panier
             updateCartDisplay();
          }
@@ -1164,6 +1296,61 @@ position: relative;
          if (event.target === modal) {
             closeProductDetailModal();
          }
+      }
+   </script>
+   <script>
+      // Fonction pour vérifier si l'utilisateur est connecté
+      function checkLoginStatus() {
+         const token = localStorage.getItem('userToken');
+         const userName = localStorage.getItem('userName');
+         const userSection = document.getElementById('userSection');
+         const loginSection = document.getElementById('userOptions');
+         
+         if (token && userName) {
+            // Utilisateur connecté
+            userSection.style.display = 'block';
+            loginSection.style.display = 'none';
+            document.querySelector('.user_name').textContent = userName;
+            
+         } else {
+            // Utilisateur non connecté
+            userSection.style.display = 'none';
+            loginSection.style.display = 'block';
+         }
+      }
+
+      // Fonction de déconnexion
+      function logout() {
+         localStorage.removeItem('userToken');
+         localStorage.removeItem('userName');
+         localStorage.removeItem('userEmail');
+         
+         Swal.fire({
+            title: 'Déconnexion réussie',
+            text: 'À bientôt !',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+         }).then(() => {
+            window.location.reload();
+         });
+      }
+
+      // Vérifier le statut de connexion au chargement de la page
+      document.addEventListener('DOMContentLoaded', checkLoginStatus);
+   </script>
+   <div id="fixedCartButton" style="display: none;" class="fixed-cart-button" onclick="updateCartDisplay()">
+       <span class="cart-icon"><i class="fas fa-shopping-cart"></i></span>
+       <span class="cart-count">0</span>
+   </div>
+   <script>
+      // Ajouter une animation au bouton quand un produit est ajouté
+      function animateCartButton() {
+         const button = document.getElementById('fixedCartButton');
+         button.style.transform = 'scale(1.2)';
+         setTimeout(() => {
+            button.style.transform = 'scale(1)';
+         }, 200);
       }
    </script>
 </body>
